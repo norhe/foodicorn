@@ -1,7 +1,7 @@
 data "terraform_remote_state" "base_env" {
   backend = "remote"
 
-  config {
+  config = {
     organization = "synaptic_racing"
     workspaces = {
       name = "${var.base-workspace}"
