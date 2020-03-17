@@ -1,8 +1,11 @@
 data "terraform_remote_state" "base_env" {
   backend = "atlas"
 
-  config {
-    name = "${var.base-workspace}"
+  config = {
+    organization = "synaptic_racing"
+    workspaces = {
+      name = "${var.base-workspace}"
+    }
   }
 }
 
