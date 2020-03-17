@@ -25,7 +25,7 @@ module "linuxservers" {
 
 module "network" {
   source              = "Azure/network/azurerm"
-  version             = "3.0.0"
+  #version             = "3.0.0"
   resource_group_name = data.terraform_remote_state.base_env.name
   allow_ssh_traffic   = "true"
   subnet_prefixes     = ["10.0.1.0/24", "10.0.2.0/24"]
