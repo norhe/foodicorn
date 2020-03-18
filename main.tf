@@ -33,7 +33,6 @@ module "network" {
   source              = "app.terraform.io/synaptic_racing/network/azurerm"
   version             = "3.0.1"
   resource_group_name = data.terraform_remote_state.base_env.outputs.rg-name
-  location            = data.terraform_remote_state.base_env.outputs.rg-location
   subnet_prefixes     = ["10.0.1.0/24", "10.0.2.0/24"]
 }
 
