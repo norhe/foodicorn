@@ -28,6 +28,7 @@ module "linuxservers" {
   enable_ssh_key      = false
   ssh_key             = null
   vm_size             = var.vm_size
+	admin_password      = var.admin_password
 }
 
 module "network" {
