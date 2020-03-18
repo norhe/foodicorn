@@ -27,6 +27,7 @@ module "linuxservers" {
   vnet_subnet_id      = module.network.vnet_subnets[0]
   enable_ssh_key      = false
   ssh_key             = null
+  vm_size             = var.vm_size
 }
 
 module "network" {
