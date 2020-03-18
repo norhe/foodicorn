@@ -18,8 +18,14 @@ data "terraform_remote_state" "base_env" {
   }
 }
 
+resource "random_string" "random" {
+  length = 6
+  special = false
+  upper = false
+}
+
 resource "azurerm_app_service_plan" "slotDemo" {
-    name                = "slotAppServicePlan"
+    name                = "${random_string.random.result}-slotAppServicePlan"
     location            = data.terraform_remote_state.base_env.outputs.rg-location
     resource_group_name = data.terraform_remote_state.base_env.outputs.rg-name
     sku {
