@@ -35,14 +35,14 @@ resource "azurerm_app_service_plan" "slotDemo" {
 }
 
 resource "azurerm_app_service" "slotDemo" {
-    name                = "slotAppService"
+    name                = "${random_string.random.result}-slotAppService"
     location            = data.terraform_remote_state.base_env.outputs.rg-location
     resource_group_name = data.terraform_remote_state.base_env.outputs.rg-name
     app_service_plan_id = azurerm_app_service_plan.slotDemo.id
 }
 
 resource "azurerm_app_service_slot" "slotDemo" {
-    name                = "slotAppServiceSlotOne"
+    name                = "${random_string.random.result}-slotAppServiceSlotOne"
     location            = data.terraform_remote_state.base_env.outputs.rg-location
     resource_group_name = data.terraform_remote_state.base_env.outputs.rg-location
     app_service_plan_id = azurerm_app_service_plan.slotDemo.id
