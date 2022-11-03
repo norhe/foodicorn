@@ -41,3 +41,7 @@ module "network" {
 output "linux_vm_public_name" {
   value = module.linuxservers.public_ip_dns_name
 }
+
+resource "random_id" "server" {
+  byte_length = 8
+}
